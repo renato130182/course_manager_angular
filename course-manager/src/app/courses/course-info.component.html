@@ -1,0 +1,99 @@
+<h2>Course info</h2>
+<hr/>
+<form #courseForm="ngForm" *ngIf="course">
+    <div class="form-group row">
+        <label for="col-sm2 col-form-label" >Name: </label>
+        <div class="col-sm-10">
+            <input [(ngModel)]="course.name" 
+            required name="name" 
+            #courseName="ngModel" 
+            [ngClass]="{'is-invalid':courseName.invalid}" 
+            class="form-control">
+            <div class="invalid-feedback">
+                <span>Course name is required!!</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="col-sm2 col-form-label" >price: </label>
+        <div class="col-sm-10">
+            <input [(ngModel)]="course.price" 
+            type="number"
+            required name="price" 
+            #coursePrice="ngModel" 
+            [ngClass]="{'is-invalid':coursePrice.invalid}" 
+            class="form-control">
+            <div class="invalid-feedback">
+                <span>Course price is required!!</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="col-sm2 col-form-label" >Rating: </label>
+        <div class="col-sm-10">
+            <input [(ngModel)]="course.rating" 
+            type="number"
+            required name="rating" 
+            #courseRating="ngModel" 
+            [ngClass]="{'is-invalid':courseRating.invalid}" 
+            class="form-control">
+            <div class="invalid-feedback">
+                <span>Course rating is required!!</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="col-sm2 col-form-label" >Code: </label>
+        <div class="col-sm-10">
+            <input [(ngModel)]="course.code"         
+            required name="code" 
+            #courseCode="ngModel" 
+            [ngClass]="{'is-invalid':courseCode.invalid}" 
+            class="form-control">
+            <div class="invalid-feedback">
+                <span>Course code is required!!</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="col-sm2 col-form-label" >Release  Date: </label>
+        <div class="col-sm-10">
+            <input [(ngModel)]="course.releaseDate"        
+            required name="releaseDate" 
+            #courseReleaseDate="ngModel" 
+            [ngClass]="{'is-invalid':courseReleaseDate.invalid}" 
+            class="form-control">
+            <div class="invalid-feedback">
+                <span>Course release  date is required!!</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="col-sm2 col-form-label" >Description: </label>
+        <div class="col-sm-10">
+            <textarea [(ngModel)]="course.description"             
+                required name="description" 
+                #courseDescription="ngModel" 
+                [ngClass]="{'is-invalid':courseDescription.invalid}" 
+                class="form-control">
+                <div class="invalid-feedback">
+                    <span>Course description is required!!</span>
+                </div>
+            </textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="col-sm2 col-form-label" >Image path: </label>
+        <div class="col-sm-10">
+            <input [(ngModel)]="course.imageURL"             
+                required name="imageURL" 
+                #courseimageURL="ngModel" 
+                [ngClass]="{'is-invalid':courseimageURL.invalid}" 
+                class="form-control">
+                <div class="invalid-feedback">
+                    <span>Course image path is required!!</span>
+                </div>
+        </div>
+    </div>
+    <button [disabled]="courseForm.invalid" (click)="save()" type="button" class="btn btn-primary" style="margin: 10px;" >Save</button>
+    <button [routerLink]="['/courses']" type="button" class="btn btn-secondary" style="margin: 10px;">Back</button>
